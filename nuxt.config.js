@@ -14,6 +14,8 @@ module.exports = {
     ],
     modules: [
       '@nuxtjs/axios',
-      '@nuxtjs/auth'
     ],
+    serverMiddleware: [
+      '~/api/index.js'
+    ]
   };

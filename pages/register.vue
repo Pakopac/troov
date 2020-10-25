@@ -9,13 +9,25 @@
 
           <form method="post" @submit.prevent="register">
             <div class="field">
-              <label class="label">Username</label>
+              <label class="label">firstname</label>
               <div class="control">
                 <input
                   type="text"
                   class="input"
-                  name="username"
-                  v-model="username"
+                  name="firstname"
+                  v-model="firstname"
+                  required
+                />
+              </div>
+            </div>
+              <div class="field">
+              <label class="label">lastname</label>
+              <div class="control">
+                <input
+                  type="text"
+                  class="input"
+                  name="lastname"
+                  v-model="lastname"
                   required
                 />
               </div>
@@ -68,7 +80,8 @@ export default {
 
   data() {
     return {
-      username: '',
+      firstname: '',
+      lastname: '',
       email: '',
       password: '',
       error: null
@@ -78,17 +91,11 @@ export default {
   methods: {
     async register() {
       try {
-        await this.$axios.post('register', {
-          username: this.username,
+        await this.$axios.post('/api/user/register', {
+          firstname: this.firstname,
+          lastname: this.lastname,
           email: this.email,
           password: this.password
-        })
-
-        await this.$auth.loginWith('local', {
-          data: {
-          email: this.email,
-          password: this.password
-          },
         })
 
         this.$router.push('/')
