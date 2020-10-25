@@ -2,11 +2,15 @@
   <p v-if="$fetchState.pending">Fetching animes...</p>
   <p v-else-if="$fetchState.error">An error occurred :(</p>
   <div v-else>
-    <div class="row">
-      <h1 style="marginLeft: 30px">Anime List</h1>
-      <n-link :to="`/anime/add`" style="marginTop: 10px;marginLeft: 30px">
-          <b-button type="submit" variant="success">Add</b-button>
+    <Navbar />
+    <div class="row" style="marginLeft: 100px">
+      <h1>Anime List</h1>
+      <div style="marginTop: 10px;marginLeft: 30px">
+      <n-link :to="`/anime/add`">
+        <b-button type="submit" variant="success">Add</b-button>
       </n-link> 
+      <b-button variant="primary" @click="$fetch">Refresh</b-button>
+      </div>
     </div>
     <ul class="card-deck">
       <li v-for="anime of animes" :key="anime.id" class="row">
@@ -31,13 +35,16 @@
           </b-card>
     </li>
     </ul>
-    <button @click="$fetch">Refresh</button>
   </div>
 </template>
 
 <script>
+  import Navbar from '~/components/Navbar'
   import animes from '../../static/animes.json';
   export default {
+    components: {
+      Navbar,
+    },
     data() {
       return {
         animes: [],
@@ -58,6 +65,7 @@
           this.error = e.response.data.message
         }
       }
-    }
+    },
   }
+  
 </script>
