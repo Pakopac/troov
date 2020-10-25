@@ -1,73 +1,56 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-4 is-offset-4">
-          <h2 class="title has-text-centered">Register!</h2>
+   <b-container>
+     <h3 class="mb-4">Register</h3>
+     <Notification :message="error" v-if="error"/>
+    <b-form method="post" @submit.prevent="register">
+      <b-form-group
+        id="input-group-1"
+        label="Firstname:"
+        label-for="input-1"
+      >
+        <b-form-input
+          type="text"
+          id="input-1"
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="firstname"
+          required
+          placeholder="Enter Firstname"
+        ></b-form-input>
+      </b-form-group>
 
-          <Notification :message="error" v-if="error"/>
+      <b-form-group id="input-group-2" label="Lastname:" label-for="input-2">
+        <b-form-input
+          type="text"
+          id="input-2"
+          v-model="lastname"
+          required
+          placeholder="Enter lastname"
+        ></b-form-input>
+      </b-form-group>
 
-          <form method="post" @submit.prevent="register">
-            <div class="field">
-              <label class="label">firstname</label>
-              <div class="control">
-                <input
-                  type="text"
-                  class="input"
-                  name="firstname"
-                  v-model="firstname"
-                  required
-                />
-              </div>
-            </div>
-              <div class="field">
-              <label class="label">lastname</label>
-              <div class="control">
-                <input
-                  type="text"
-                  class="input"
-                  name="lastname"
-                  v-model="lastname"
-                  required
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input
-                  type="email"
-                  class="input"
-                  name="email"
-                  v-model="email"
-                  required
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input
-                  type="password"
-                  class="input"
-                  name="password"
-                  v-model="password"
-                  required
-                />
-              </div>
-            </div>
-            <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">Register</button>
-            </div>
-          </form>
+      <b-form-group id="input-group-3" label="Email:" label-for="input-3">
+        <b-form-input
+          type="text"
+          id="input-3"
+          v-model="email"
+          required
+          placeholder="Enter email"
+        ></b-form-input>
+      </b-form-group>
 
-          <div class="has-text-centered" style="margin-top: 20px">
-            Already got an account? <nuxt-link to="/login">Login</nuxt-link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <b-form-group id="input-group-3" label="Password:" label-for="input-4">
+        <b-form-input
+          type="password"
+          id="input-4"
+          v-model="password"
+          required
+          placeholder="Enter password"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-button type="submit" variant="primary">Submit</b-button>
+    </b-form>
+  </b-container>
 </template>
 
 <script>
