@@ -3,11 +3,7 @@
      <h3 class="mb-4">Register</h3>
      <Notification :message="error" v-if="error"/>
     <b-form method="post" @submit.prevent="register">
-      <b-form-group
-        id="input-group-1"
-        label="Firstname:"
-        label-for="input-1"
-      >
+      <b-form-group id="input-group-1" label="Firstname:" label-for="input-1">
         <b-form-input
           type="text"
           id="input-1"

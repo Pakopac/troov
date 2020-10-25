@@ -5,8 +5,24 @@ module.exports = {
     },
     modules: [
       '@nuxtjs/axios',
+      '@nuxtjs/auth',
       'bootstrap-vue/nuxt'
     ],
+    auth: {
+      strategies: {
+        local: {
+          endpoints: {
+            login: { url: '/api/user/login', method: 'post', propertyName: 'token' },
+            logout: false
+          }
+        }
+      },
+      redirect: {
+        login: '/login',
+        logout: '/',
+        home: '/'
+      },
+    },
     serverMiddleware: [
       '~/api/index.js'
     ]
