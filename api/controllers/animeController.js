@@ -48,13 +48,42 @@ module.exports.modify = [
                   ],
                 "rating": req.body.rating,
             };
-            obj[req.body.id] = json;
+
+            for(var i = 0; i<obj.length; i++){
+                if(obj[i].id === parseInt(req.body.id)){
+                    obj[i] = json
+                }
+              }
             json = JSON.stringify(obj); 
             return fs.writeFile('./static/animes.json', json, 'utf8', (err) => {
                 if (err){
                     console.log(err);
                 } else {
-                    return res.json({"response": "Added"})
+                    return res.json({"response": "Modified"})
+                }
+            });
+        }});
+    }
+],
+
+module.exports.delete = [
+    function(req,res){
+
+        fs.readFile('./static/animes.json', 'utf8', function readFileCallback(err, data){
+            if (err){
+                console.log(err);
+            } else {
+            obj = JSON.parse(data);
+
+            var filtered = obj.filter(function(item) { 
+                return item.id !== parseInt(req.body.id);  
+             });
+            json = JSON.stringify(filtered); 
+            return fs.writeFile('./static/animes.json', json, 'utf8', (err) => {
+                if (err){
+                    console.log(err);
+                } else {
+                    return res.json({"response": "Deleted"})
                 }
             });
         }});

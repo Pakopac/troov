@@ -83,7 +83,7 @@ export default {
     async fetch() {
       this.animes = animes
       for(var i = 0; i<this.animes.length; i++){
-        if(i === parseInt(this.$route.params.id)){
+        if(this.animes[i].id === parseInt(this.$route.params.id)){
           var currentAnime = this.animes[i]
         }
       }

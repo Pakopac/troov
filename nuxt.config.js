@@ -18,11 +18,6 @@ module.exports = {
           }
         }
       },
-      redirect: {
-        login: '/login',
-        logout: '/',
-        home: '/'
-      },
     },
     serverMiddleware: [
       '~/api/index.js'

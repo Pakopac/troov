@@ -2,7 +2,12 @@
   <p v-if="$fetchState.pending">Fetching animes...</p>
   <p v-else-if="$fetchState.error">An error occurred :(</p>
   <div v-else>
-    <h1>Anime List</h1>
+    <div class="row">
+      <h1 style="marginLeft: 30px">Anime List</h1>
+      <n-link :to="`/anime/add`" style="marginTop: 10px;marginLeft: 30px">
+          <b-button type="submit" variant="success">Add</b-button>
+      </n-link> 
+    </div>
     <ul class="card-deck">
       <li v-for="anime of animes" :key="anime.id" class="row">
            <b-card
@@ -20,8 +25,8 @@
           <div class="position-absolute" style="bottom: 10px">
             <n-link :to="`/anime/modify/${anime.id}`">
               <b-button type="submit" variant="primary">Modify</b-button>
-            </n-link>
-            <b-button type="submit" variant="danger">Delete</b-button>
+            </n-link>        
+              <b-button @click="deleteAnime(anime.id)" type="submit" variant="danger">Delete</b-button>
           </div>
           </b-card>
     </li>
@@ -41,5 +46,18 @@
     async fetch() {
       this.animes = animes
     },
+    methods: {
+      async deleteAnime(id) {
+        try {
+          await this.$axios.post('/api/anime/delete', {
+            id: id
+          })
+          this.$router.push('/anime/list')
+
+        } catch (e) {
+          this.error = e.response.data.message
+        }
+      }
+    }
   }
 </script>
