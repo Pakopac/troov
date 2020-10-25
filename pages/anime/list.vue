@@ -25,8 +25,7 @@
 </template>
 
 <script>
-  import animes from '../static/animes.json';
-  const axios = require('axios')
+  import animes from '../../static/animes.json';
   export default {
     data() {
       return {
@@ -35,6 +34,6 @@
     },
     async fetch() {
       this.animes = animes
-    }
+    },
   }
 </script>

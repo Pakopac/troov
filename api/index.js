@@ -11,9 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // Require & Import API routes
 const users = require('./routes/users')
+const anime = require('./routes/anime')
 
 // Use API Routes
 app.use(users)
+app.use(anime)
 
 // Export the server middleware
 module.exports = {
