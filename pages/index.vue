@@ -7,6 +7,9 @@
     <NLink to="/login">
       login
     </NLink>
+     <NLink to="/anime/list">
+      list
+    </NLink>
   </div>
 </template>
 

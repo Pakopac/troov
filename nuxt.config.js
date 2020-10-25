@@ -6,6 +6,7 @@ module.exports = {
     modules: [
       '@nuxtjs/axios',
       '@nuxtjs/auth',
+      '@nuxt/content',
       'bootstrap-vue/nuxt'
     ],
     auth: {
@@ -16,11 +17,6 @@ module.exports = {
             logout: false
           }
         }
-      },
-      redirect: {
-        login: '/login',
-        logout: '/',
-        home: '/'
       },
     },
     serverMiddleware: [
