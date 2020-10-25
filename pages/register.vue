@@ -1,5 +1,7 @@
 <template>
-   <b-container>
+  <div>
+     <Navbar />
+   <b-container style="margin-top:50px">
      <h3 class="mb-4">Register</h3>
      <Notification :message="error" v-if="error"/>
     <b-form method="post" @submit.prevent="register">
@@ -47,14 +49,17 @@
       <b-button type="submit" variant="primary">Submit</b-button>
     </b-form>
   </b-container>
+  </div>
 </template>
 
 <script>
 import Notification from '~/components/Notification'
+import Navbar from '~/components/Navbar'
 
 export default {
   components: {
     Notification,
+    Navbar
   },
 
   data() {

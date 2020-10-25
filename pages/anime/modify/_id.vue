@@ -2,7 +2,8 @@
   <p v-if="$fetchState.pending">Fetching animes...</p>
   <p v-else-if="$fetchState.error">An error occurred :(</p>
   <div v-else>
-   <b-container>
+    <Navbar />
+   <b-container style="margin-top: 50px">
      <h3 class="mb-4">Modify Anime</h3>
     <b-form method="post" @submit.prevent="modify">
       <b-form-group id="input-group-1" label="Name:" label-for="input-1">
@@ -66,6 +67,7 @@
 <script>
 import Notification from '~/components/Notification'
 import animes from '../../../static/animes.json';
+import Navbar from '~/components/Navbar'
 
 export default {
   data() {
@@ -79,6 +81,9 @@ export default {
       currentAnime: {}
     }
   },
+  components: {
+      Navbar,
+    },
 
     async fetch() {
       this.animes = animes
