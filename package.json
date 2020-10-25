@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.12.2",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.18.1",
     "express": "^4.17.1",
+    "express-validator": "^6.6.1",
     "mongoose": "^5.10.9",
-    "nuxt": "^2.14.7"
+    "nuxt": "^2.14.7",
+    "passport-local-mongoose": "^6.0.1"
   },
   "scripts": {
     "dev": "nuxt"
