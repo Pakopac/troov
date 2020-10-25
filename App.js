@@ -4,6 +4,7 @@ const app = require('express')()
 const isProd = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 3000
 
+
 // Nous instancions Nuxt.js avec les options
 const config = require('./nuxt.config.js')
 config.dev = !isProd
