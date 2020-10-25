@@ -6,6 +6,7 @@ module.exports = {
     modules: [
       '@nuxtjs/axios',
       '@nuxtjs/auth',
+      '@nuxt/content',
       'bootstrap-vue/nuxt'
     ],
     auth: {
