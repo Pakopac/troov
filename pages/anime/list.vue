@@ -53,6 +53,7 @@
     async fetch() {
       this.animes = animes
     },
+    middleware: 'logged',
     methods: {
       async deleteAnime(id) {
         try {

@@ -71,7 +71,7 @@ export default {
       error: null
     }
   },
-
+  middleware: 'notLogged',
   methods: {
     async register() {
       try {

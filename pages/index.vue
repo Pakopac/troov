@@ -18,8 +18,6 @@ export default {
   head: {
     title: 'Home page',
   },
-    middleware({ store, redirect }) {
-        return redirect('/anime/list')
-    }
+  middleware: 'home'
 }
 </script>

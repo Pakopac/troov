@@ -61,12 +61,17 @@ module.exports.login = [
               message: 'Email address you entered is not found.'
             });
           }
-  
           return bcrypt.compare(req.body.password, user.password, function(err, isMatched) {
             if(isMatched===true){
+            
                 return res.json({
-                    token: jwt.sign({email: user.email, firstname: user.firstname, lastname: user.lastname}, config.authSecret)
-              })
+                  user: {
+                    email: user.email,
+                    firstname: user.firstname,
+                    lastname: user.lastname
+                  },
+                  token: jwt.sign({email: user.email, firstname: user.firstname,lastname: user.lastname}, config.authSecret)
+                });
             }
             else{
               return res.status(500).json({

@@ -84,7 +84,7 @@ export default {
   components: {
       Navbar,
     },
-
+    middleware: 'logged',
     async fetch() {
       this.animes = animes
       for(var i = 0; i<this.animes.length; i++){
