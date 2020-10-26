@@ -49,14 +49,16 @@ export default {
       error: null
     }
   },
-
+  middleware: 'notLogged',
   methods: {
     async login() {
+        this.$router.push('/')
       try {
         await this.$axios.post('/api/user/login', {
           email: this.email,
           password: this.password
         })
+        //this.$auth.setUser(this.email)
         this.$router.push('/')
 
       } catch (e) {

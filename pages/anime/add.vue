@@ -81,7 +81,7 @@ components: {
     }
   },
 
-  
+    middleware: 'logged',
     methods: {
     async add() {
       try {

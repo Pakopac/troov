@@ -1,7 +1,9 @@
-export default function ({ vue, store, redirect }) {
-    // Si l'utilisateur n'est pas authentifié
-    if (!store.state.authenticated) {
-      return redirect('/login')
+export default function ({ store, redirect }) {
+    if (!store.state.auth.loggedIn) {
+        return redirect('/login')
     }
-  }
+    else{
+      return redirect('/anime/list')
+    }
+}
   
